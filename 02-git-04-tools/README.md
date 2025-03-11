@@ -77,13 +77,17 @@
 
 При помощи команды **git log -S 'func providerSource'** можем сравнить и время двух коммитов. 
 
+![8c928e8358](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_log_function_commit1.png)
 
+![5af1e6234a](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_log_function_commit2.png)
 
 Таким образом, функция была создана в более раннем коммите 8c928e8358 (полный хеш 8c928e83589d90a031f811fae52a81be7153e82f). 
 
 * Найдите все коммиты, в которых была изменена функция `globalPluginDirs`.
 
 При помощи команды **git log -S 'globalPluginDirs' --oneline --reverse** находим все коммиты с упоминанием функции. 
+
+![globalPluginDirs](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_globalPluginDirs.png)
 
 В первом из них функция была создана, в остальных - отредактирована. Таким образом, в список включим все коммиты, кроме хронологически первого: 
 
@@ -100,6 +104,8 @@ c0b1761096 prevent log output during init
 * Кто автор функции `synchronizedWriters`? 
 
 **git log -S'synchronizedWriters' --reverse**
+
+![author](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_commit_author.png)
 
 Автор функции (в его коммите она появилась впервые) - Martin Atkins <mart@degeneration.co.uk>.
 
