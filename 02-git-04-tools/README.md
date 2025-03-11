@@ -20,14 +20,75 @@
 В клонированном репозитории:
 
 1. Найдите полный хеш и комментарий коммита, хеш которого начинается на `aefea`.
+
+**git show aefea**
+
+Полный хеш: aefead2207ef7e2aa5dc81a34aedf0cad4c32545
+Комментарий: Update CHANGELOG.md
+
 2. Ответьте на вопросы.
 
 * Какому тегу соответствует коммит `85024d3`?
+
+**git show 85024d3**
+
+Тег: v0.12.23
+
+
 * Сколько родителей у коммита `b8d720`? Напишите их хеши.
+
+Чтобы увидеть родителей коммита, используем команду **git show b8d720^**
+
+Мы видим, что у коммита два родителя, и используем обычную команду **git show**, чтобы увидеть полные хеши каждого из них. 
+
+Хеш родителя 1: 58dcac4b798f0a2421170d84e507a42838101648
+
+Хеш родителя 2: ffbcf55817cb96f6d5ffe1a34abe963b159bf34e
+
 * Перечислите хеши и комментарии всех коммитов, которые были сделаны между тегами  v0.12.23 и v0.12.24.
+
+Можно использовать команду **git log v0.12.23..v0.12.24 --oneline**, но чтобы видеть полные хеши, необходимо прибегнуть к ключу **--format**: **git log v0.12.23..v0.12.24 --format="%H %s"**
+
+
 * Найдите коммит, в котором была создана функция `func providerSource`, её определение в коде выглядит так: `func providerSource(...)` (вместо троеточия перечислены аргументы).
+
+Ищем коммиты с упоминанием функции `func providerSource`:
+
+**git log -S 'func providerSource' --oneline**
+
+Сравниваем упоминания функции в двух найденных коммитах:
+**git show 8c928e8358 | grep "func providerSource"**
+**git show 5af1e6234a | grep "func providerSource"**
+
+
+
+При помощи команды **git log -S 'func providerSource'** можем сравнить и время двух коммитов. 
+
+
+
+Таким образом, функция была создана в более раннем коммите 8c928e8358 (полный хеш 8c928e83589d90a031f811fae52a81be7153e82f). 
+
 * Найдите все коммиты, в которых была изменена функция `globalPluginDirs`.
+
+При помощи команды **git log -S 'globalPluginDirs' --oneline --reverse** находим все коммиты с упоминанием функции. 
+
+В первом из них функция была создана, в остальных - отредактирована. Таким образом, в список включим все коммиты, кроме хронологически первого: 
+
+```
+c0b1761096 prevent log output during init
+35a058fb3d main: configure credentials from the CLI config file
+7c7e5d8f0a Don't show data while input if sensitive
+22c121df86 Bump compatibility version to 1.3.0 for terraform core release (#30988)
+125eb51dc4 Remove accidentally-committed binary
+65c4ba7363 Remove terraform binary
+7c4aeac5f3 stacks: load credentials from config file on startup (#35952)
+```
+
 * Кто автор функции `synchronizedWriters`? 
+
+**git log -S'synchronizedWriters' --reverse**
+
+Автор функции (в его коммите она появилась впервые) - Martin Atkins <mart@degeneration.co.uk>.
 
 *В качестве решения ответьте на вопросы и опишите, как были получены эти ответы.*
 
