@@ -34,14 +34,22 @@
 
 **git show 85024d3**
 
+![Тег](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_show_85024d3.png)
+
 Тег: v0.12.23
 
 
 * Сколько родителей у коммита `b8d720`? Напишите их хеши.
 
-Чтобы увидеть родителей коммита, используем команду **git show b8d720^**
+Чтобы познакомиться с родителями коммита, используем команду **git show b8d720^**
+
+![Родители](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_show_parents.png)
 
 Мы видим, что у коммита два родителя, и используем обычную команду **git show**, чтобы увидеть полные хеши каждого из них. 
+
+![Родитель1](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_show_parent1.png)
+
+![Родитель2](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_show_parent2.png)
 
 Хеш родителя 1: 58dcac4b798f0a2421170d84e507a42838101648
 
@@ -51,6 +59,7 @@
 
 Можно использовать команду **git log v0.12.23..v0.12.24 --oneline**, но чтобы видеть полные хеши, необходимо прибегнуть к ключу **--format**: **git log v0.12.23..v0.12.24 --format="%H %s"**
 
+![Интервал](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_log_between.png)
 
 * Найдите коммит, в котором была создана функция `func providerSource`, её определение в коде выглядит так: `func providerSource(...)` (вместо троеточия перечислены аргументы).
 
@@ -58,11 +67,13 @@
 
 **git log -S 'func providerSource' --oneline**
 
+![Функция](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_log_function_commit.png)
+
 Сравниваем упоминания функции в двух найденных коммитах:
 **git show 8c928e8358 | grep "func providerSource"**
 **git show 5af1e6234a | grep "func providerSource"**
 
-
+![Сравнение](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_log_function_commit_compare.png)
 
 При помощи команды **git log -S 'func providerSource'** можем сравнить и время двух коммитов. 
 
