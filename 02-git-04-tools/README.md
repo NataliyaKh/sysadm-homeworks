@@ -23,6 +23,8 @@
 
 **git show aefea**
 
+![Хеш](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_show_aefea.png)
+
 Полный хеш: aefead2207ef7e2aa5dc81a34aedf0cad4c32545
 Комментарий: Update CHANGELOG.md
 
