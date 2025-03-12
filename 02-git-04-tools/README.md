@@ -102,7 +102,15 @@ c0b1761096 prevent log output during init
 ```
 
 Исправление: более корректен поиск по **git log -L :GlobalPluginDirs:plugins.go**. 
-В каждом из коммитов, отображённых по команде, описана история изменений функции. В части коммитов изменяется её название - с globalPluginDirs на GlobalPluginDirs, поэтому поиск по **git log -L :globalPluginDirs:plugins.go** не выдаёт актуальных результатов. 
+В каждом из коммитов, отображённых по команде, описана история изменений функции (в хронологически первом коммите функция только создаётся, поэтому в список она не включена). 
+
+
+
+В части коммитов изменяется её название - с globalPluginDirs на GlobalPluginDirs, поэтому поиск по **git log -L :globalPluginDirs:plugins.go** не выдаёт актуальных результатов. 
+
+
+
+![functionHistory](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_globalPluginDirs_function.png)
 
 * Кто автор функции `synchronizedWriters`? 
 
