@@ -101,9 +101,12 @@ c0b1761096 prevent log output during init
 7c4aeac5f3 stacks: load credentials from config file on startup (#35952)
 ```
 
+Исправление: более корректен поиск по **git log -L :GlobalPluginDirs:plugins.go**. 
+В каждом из коммитов, отображённых по команде, описана история изменений функции. В части коммитов изменяется её название - с globalPluginDirs на GlobalPluginDirs, поэтому поиск по **git log -L :globalPluginDirs:plugins.go** не выдаёт актуальных результатов. 
+
 * Кто автор функции `synchronizedWriters`? 
 
-**git log -S'synchronizedWriters' --reverse**
+**git log -S 'synchronizedWriters' --reverse**
 
 ![author](https://github.com/NataliyaKh/sysadm-homeworks/blob/main/02-git-04-tools/git_commit_author.png)
 
